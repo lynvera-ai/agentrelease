@@ -112,21 +112,42 @@ All declared tests and metrics are mandatory. Supported comparisons are `>=`,
 Missing required tests or measurements are INCONCLUSIVE. Unknown test IDs or
 metric names, duplicate identifiers or keys, and malformed inputs are ERROR.
 
-See [the format reference](docs/formats.md),
-[the specification](docs/specification.md), and
-[the synthetic examples](examples/README.md).
+`schema_version` must be integer `1`. A policy needs an `id` and a nonempty
+`tests` list. Test IDs, policy IDs and metric names match
+`[A-Za-z0-9][A-Za-z0-9_.-]{0,63}` and are case-sensitive. Metric rules require
+`name`, `operator` and a finite numeric `threshold`. Evidence requires a
+`tests` list, which may be empty. Every evidence test needs `id` and `status`;
+its optional `metrics` object maps declared names to finite numbers.
+
+Unknown fields, numeric strings, booleans used as numbers and nonfinite values
+are invalid. A skipped test cannot contain measurements. YAML aliases, merge
+keys, custom object tags and multiple documents are rejected. Quote operators
+and identifiers that YAML could interpret as another type.
+
+The synthetic files in `examples` cover passing, failed, missing, skipped and
+invalid evidence. Use each JSON file with `examples/policy.yaml`.
 
 ## Reproducibility and limits
 
 The same inputs produce the same evaluation and serialized report. Reports
 include input fingerprints and evaluator version; they omit timestamps and
 machine paths. Fingerprints identify content and do not authenticate evidence.
+They use SHA-256 of validated inputs serialized as compact JSON with sorted
+mapping keys and ASCII escaping. Whitespace and mapping key order do not
+affect fingerprints; list order and numeric representation do.
+
+JSON reports contain `schema_version`, `evaluator_version`, `policy_id`,
+`status`, `scope`, `input_sha256`, `checks` and `errors`. Checks are sorted by
+test ID, with the outcome before metric checks sorted by name. Each check
+includes its status, reason, observation and applicable comparison. Invalid
+inputs produce ERROR reports with no checks and an error code and message.
 
 Comparisons use Python numeric semantics without tolerance, rounding, unit
 conversion or statistical inference. Choose explicit thresholds and consistent
 units. This version has no optional criteria, custom rules, framework
 integrations, real agent execution, external scanners, dashboard, cloud service,
-database, user authentication or paid APIs. See [scope and limits](docs/scope.md).
+database, user authentication or paid APIs. The caller remains responsible
+for trustworthy evidence collection, appropriate tests and consistent units.
 
 ## Development
 
@@ -136,13 +157,11 @@ pytest
 ruff check .
 ruff format --check .
 python -m build
-python scripts/check_install.py dist/agentrelease-0.1.0-py3-none-any.whl
 ```
 
 Tests cover all four states, priority, missing and skipped evidence, numeric
 boundaries, strict input validation, safe YAML loading, reproducibility, report
-output and CLI exit codes. See [validation results](docs/validation.md) for the
-checked environment and package installation results.
+output and CLI exit codes.
 
 PyYAML (MIT) is the sole runtime dependency, for safe YAML parsing. Python's
 standard library provides validation, the CLI, comparisons and reports.
