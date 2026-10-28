@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "tests": [
+    {"id": "response-quality", "status": "skipped"},
+    {"id": "tool-boundary", "status": "passed"}
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "tests": [
+    {"id": "response-quality", "status": "passed", "metrics": {"accuracy": 0.95}},
+    {"id": "tool-boundary", "status": "passed"}
+  ]
+}
