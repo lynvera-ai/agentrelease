@@ -1,0 +1,2 @@
+recursive-include examples *.yaml *.json
+recursive-include tests *.py
