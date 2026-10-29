@@ -35,11 +35,12 @@ def main(argv: list[str] | None = None) -> int:
                 if path.exists()
             ):
                 raise OSError("Output must not overwrite an input file.")
-            args.output.write_text(content, encoding="utf-8")
+            with args.output.open("x", encoding="utf-8") as stream:
+                stream.write(content)
         else:
             sys.stdout.write(content)
     except (OSError, UnicodeError, ValueError):
-        error = error_report("OUTPUT_IO", "Cannot write report; input files cannot be overwritten.")
+        error = error_report("OUTPUT_IO", "Cannot write report; choose a new writable output path.")
         sys.stderr.write(error.to_json() if args.format == "json" else error.to_text())
         return 3
     return report.status.exit_code
