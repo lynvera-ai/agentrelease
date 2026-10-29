@@ -12,8 +12,9 @@ AgentRelease compares supplied agent test evidence with explicit release
 criteria and produces reproducible JSON and text reports. It is a local Python
 library and command-line tool from Lynvera Intelligence.
 
-[Español](docs/es/primeros-pasos.md) | [Formats](docs/formats.md) |
-[Installation](docs/installation.md) | [External review](docs/external-review.md)
+Read the [Spanish quick start](docs/es/primeros-pasos.md),
+[format reference](docs/formats.md), [installation guide](docs/installation.md)
+and [external review steps](docs/external-review.md).
 
 ## When to use it
 
