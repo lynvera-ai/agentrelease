@@ -1,0 +1,41 @@
+name: Bug report
+description: Report an installation or evaluation problem using synthetic data.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: Do not include credentials, private evidence, personal paths or execution logs. Use SECURITY.md for sensitive reports.
+  - type: input
+    id: version
+    attributes:
+      label: Version and source
+      description: Package version and source commit or artifact SHA-256.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Operating system, architecture and Python version. Omit usernames and machine names.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Minimal steps
+      description: Include commands and small synthetic inputs only.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed result
+      description: Include exit code and error code. Summarize diagnostics rather than attaching full logs.
+    validations:
+      required: true

@@ -3,13 +3,14 @@
 import math
 import re
 from dataclasses import dataclass
+from typing import NoReturn, cast
 
 IDENTIFIER = re.compile(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,63}\Z")
 OPERATORS = {">=", ">", "<=", "<", "==", "!="}
 
 
 class InputError(ValueError):
-    def __init__(self, code: str, message: str):
+    def __init__(self, code: str, message: str) -> None:
         self.code = code
         super().__init__(message)
 
@@ -34,11 +35,11 @@ class TestEvidence:
     metrics: dict[str, int | float]
 
 
-def fail(message: str, code: str = "INVALID_INPUT") -> None:
+def fail(message: str, code: str = "INVALID_INPUT") -> NoReturn:
     raise InputError(code, message)
 
 
-def fields(value: object, required: set[str], optional: set[str], path: str) -> dict:
+def fields(value: object, required: set[str], optional: set[str], path: str) -> dict[str, object]:
     if type(value) is not dict:
         fail(f"{path} must be an object.")
     if any(type(key) is not str for key in value):
@@ -49,7 +50,7 @@ def fields(value: object, required: set[str], optional: set[str], path: str) -> 
         fail(f"{path} is missing fields: {', '.join(sorted(missing))}.")
     if unknown:
         fail(f"{path} has unknown fields: {', '.join(sorted(unknown))}.")
-    return value
+    return cast(dict[str, object], value)
 
 
 def identifier(value: object, path: str) -> str:
@@ -59,15 +60,15 @@ def identifier(value: object, path: str) -> str:
 
 
 def number(value: object, path: str) -> int | float:
-    if type(value) not in (int, float) or (type(value) is float and not math.isfinite(value)):
-        fail(f"{path} must be a finite number, not a boolean or string.")
-    return value
+    if type(value) is int or (type(value) is float and math.isfinite(value)):
+        return value
+    fail(f"{path} must be a finite number, not a boolean or string.")
 
 
-def sequence(value: object, path: str) -> list:
+def sequence(value: object, path: str) -> list[object]:
     if type(value) is not list:
         fail(f"{path} must be a list.")
-    return value
+    return cast(list[object], value)
 
 
 def version(value: object, path: str) -> None:

@@ -142,3 +142,38 @@ def test_cli_report_is_byte_reproducible():
     first, second = run(*args), run(*args)
     assert first.returncode == second.returncode == 0
     assert first.stdout == second.stdout
+
+
+def test_existing_report_is_preserved(tmp_path):
+    output = tmp_path / "report.json"
+    output.write_text("previous report\n", encoding="utf-8")
+    result = run(
+        "evaluate",
+        "--policy",
+        ROOT / "examples/policy.yaml",
+        "--evidence",
+        ROOT / "examples/evidence-pass.json",
+        "--format",
+        "json",
+        "--output",
+        output,
+    )
+    assert result.returncode == 3
+    assert json.loads(result.stderr)["errors"][0]["code"] == "OUTPUT_IO"
+    assert output.read_text(encoding="utf-8") == "previous report\n"
+
+
+def test_failed_evaluation_does_not_overwrite_report(tmp_path):
+    output = tmp_path / "report.json"
+    output.write_text("previous report\n", encoding="utf-8")
+    result = run(
+        "evaluate",
+        "--policy",
+        ROOT / "examples/policy.yaml",
+        "--evidence",
+        ROOT / "examples/evidence-fail.json",
+        "--output",
+        output,
+    )
+    assert result.returncode == 3
+    assert output.read_text(encoding="utf-8") == "previous report\n"

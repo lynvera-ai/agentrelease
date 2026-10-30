@@ -49,7 +49,7 @@ class Report:
     policy_sha256: str | None = None
     evidence_sha256: str | None = None
 
-    def to_dict(self) -> dict:
+    def to_dict(self) -> dict[str, object]:
         return {
             "schema_version": 1,
             "evaluator_version": VERSION,
