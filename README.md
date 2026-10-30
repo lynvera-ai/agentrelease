@@ -33,7 +33,7 @@ Requires Python 3.12 or newer with `pip` and `venv`, plus Git for cloning.
 From a new terminal on macOS or Linux:
 
 ```sh
-git clone https://github.com/lynvera-ai/agentrelease.git
+git clone --branch v0.1.0 --single-branch https://github.com/lynvera-ai/agentrelease.git
 cd agentrelease
 python3.12 -m venv .venv
 source .venv/bin/activate
@@ -43,9 +43,10 @@ agentrelease --version
 ```
 
 Expected version: `AgentRelease 0.1.0`. Record `git rev-parse HEAD` to identify
-the exact source used. To review an unpublished candidate, use its supplied
-source archive instead of cloning. There is no published package in this
-preparation; do not use an unqualified `pip install agentrelease` for it.
+the exact source used. The experimental [v0.1.0 GitHub release](https://github.com/lynvera-ai/agentrelease/releases/tag/v0.1.0)
+provides the wheel, source archive and checksums. This version is not published
+to PyPI; use the tagged source or a downloaded wheel rather than an unqualified
+`pip install agentrelease`.
 
 Installation may download small public build tools and PyYAML. Evaluation
 requires no API key, model download, account, network connection or paid service.

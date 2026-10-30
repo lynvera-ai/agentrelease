@@ -86,9 +86,10 @@ until reviewed for sensitive data.
 Create a fresh virtual environment for a reviewed update. Install its pinned
 runtime requirements and wheel, run `pip check` and the synthetic examples,
 then use that environment for new evaluations. Keep the previous environment,
-inputs and reports until the update is accepted. Reusing version 0.1.0 during
-experimental preparation means the source commit and artifact hashes are
-needed to distinguish candidates.
+inputs and reports until the update is accepted. The `v0.1.0` release identifies
+one exact source commit and set of artifact hashes. Local candidates also need
+their source commit and hashes recorded; later published changes need a new
+version rather than replacing the existing tag or files.
 
 To recover, reactivate the previous environment or reinstall the retained wheel
 and its matching requirements into a new one. AgentRelease does not migrate
