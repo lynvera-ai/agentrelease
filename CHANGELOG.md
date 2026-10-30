@@ -23,12 +23,18 @@ development work, not published tags or packages.
   build process, artifact checksums and sanitized build metadata.
 - Existing report files now produce OUTPUT_IO instead of being replaced.
   Use a new output filename; input protection remains in place.
+- Strict static type checking for the library and maintenance tools, with
+  pinned dependencies and corrected validation and parser annotations.
+- Local test coverage on macOS with Python 3.12, 3.13 and 3.14, and Linux ARM64
+  in a container with Python 3.12. Windows and independent acceptance remain pending.
+- A portable candidate checker with sanitized JSON results for installation
+  review on another machine; passing automation does not grant acceptance.
 
 ### Known limits
 
 - Experimental alpha metadata, with independent acceptance pending.
-- Only macOS Apple Silicon and Python 3.12 have been checked locally for this
-  candidate; other platforms and Python versions remain pending.
+- The exact locally checked combinations are listed in the validation matrix;
+  other platforms and Python versions remain pending.
 - No evidence authentication, agent execution, integrations, optional rules,
   statistical inference, cloud service or transactional report writes.
 - Version 0.1.0 is retained because this is preparation of an unpublished

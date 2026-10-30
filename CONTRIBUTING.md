@@ -17,11 +17,15 @@ python -m pip install --no-build-isolation --no-deps -e .
 pytest -q
 ruff check .
 ruff format --check .
+mypy
 ```
 
-No hosted workflow, paid API or external agent is required. No separate static
-type checker is configured. Type annotations and `py.typed` are present, but
-they are not a claim that independent static type analysis has passed.
+No hosted workflow, paid API or external agent is required. Mypy runs in strict
+mode over the package and maintenance tools, targeting the Python 3.12 minimum.
+Its version and PyYAML definitions are pinned in `requirements/typing.txt`.
+Do not add broad ignores or disable checks to make failures disappear. Dynamic
+file inputs remain subject to runtime validation; static analysis does not
+replace the tests or independent review.
 
 ## Changes
 

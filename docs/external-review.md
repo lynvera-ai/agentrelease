@@ -26,11 +26,30 @@ agentrelease --version
 ```
 
 `shasum` and `tar` must be available. On Linux, `sha256sum -c SHA256SUMS`
-is an alternative. Windows and other environments remain pending; see
+is an alternative. Windows and unlisted environments remain pending; see
 [installation](installation.md) for environment commands. Checksums verify
 received bytes against the supplied manifest, not who supplied them.
 
 ## First use
+
+For a repeatable automated walkthrough, run the portable checker from this
+extracted source directory:
+
+```sh
+python3.12 tools/check_candidate.py --artifacts .. --output local-review.json
+```
+
+On Windows with Python 3.12 installed:
+
+```powershell
+py -3.12 tools\check_candidate.py --artifacts .. --output windows-review.json
+```
+
+The checker creates its own clean temporary environment and writes a sanitized
+result; it does not upload anything or grant acceptance. Use `--wheelhouse`
+for offline dependency installation. An existing result file is protected.
+See the [validation matrix](validation-matrix.md) for what has actually run.
+The following manual steps remain useful for reviewing behavior personally.
 
 ```sh
 agentrelease evaluate --policy examples/policy.yaml --evidence examples/evidence-pass.json

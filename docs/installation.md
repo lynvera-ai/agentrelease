@@ -4,9 +4,10 @@ The main requirements are Python 3.12 or newer, `venv` and `pip`. Git is needed
 only to clone source. PyYAML is the only runtime dependency. No integrations,
 models, accounts, API keys, databases, background services or ports are needed.
 
-The candidate has been checked on macOS Apple Silicon with Python 3.12.9.
-Linux, Windows and other Python versions remain pending. Windows commands
-below are provided for review, not as evidence of a tested platform.
+Local validation covers macOS Apple Silicon with Python 3.12.9, 3.13.6 and
+3.14.4, and a Linux ARM64 Debian container with Python 3.12.16. Windows commands
+below are provided for review, not as evidence of a tested platform. See the
+[validation matrix](validation-matrix.md) for scope and pending combinations.
 
 ## Source installation
 

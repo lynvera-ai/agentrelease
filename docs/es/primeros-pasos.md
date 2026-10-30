@@ -7,9 +7,10 @@ No ejecuta agentes, no autentica las evidencias y no certifica seguridad general
 
 ## Instalar
 
-Requiere Python 3.12 o posterior con `pip` y `venv`, y Git para clonar. Solo
-se ha validado este candidato en macOS Apple Silicon con Python 3.12.9.
-Linux, Windows y otras versiones de Python siguen pendientes.
+Requiere Python 3.12 o posterior con `pip` y `venv`, y Git para clonar. La
+validación local incluye macOS Apple Silicon con Python 3.12.9, 3.13.6 y
+3.14.4, y Linux ARM64 en contenedor Debian con Python 3.12.16. Windows y otras
+combinaciones siguen pendientes. Consulta la [matriz](../validation-matrix.md).
 
 ```sh
 git clone https://github.com/lynvera-ai/agentrelease.git

@@ -77,7 +77,7 @@ environments. Keep the candidate hashes with review evidence.
 
 ## Dependency integrity
 
-`requirements/runtime.txt`, `build.txt` and `development.txt` pin the candidate
+`requirements/runtime.txt`, `build.txt`, `typing.txt` and `development.txt` pin the candidate
 environment and include SHA-256 hashes from original package distributions.
 The project's install metadata retains bounded dependency ranges; the locks
 identify the exact environment reviewed here. They include distribution hashes

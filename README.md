@@ -157,10 +157,9 @@ Version 0.1.0 remains experimental, with alpha package metadata. The local test
 suite exercises the supported API and CLI, but independent acceptance is
 pending. This is not a beta or production-ready release.
 
-- Only the locally available macOS Apple Silicon and Python 3.12 environment
-  has been validated for this candidate. Linux, Windows and other Python
-  versions remain pending; the minimum Python requirement is not proof of
-  testing on every later version.
+- Local validation covers macOS Apple Silicon with Python 3.12, 3.13 and 3.14,
+  and Linux ARM64 in a container with Python 3.12. Windows and other platform
+  combinations remain pending. See the [exact validation matrix](docs/validation-matrix.md).
 - Supplied observations are not authenticated. Test adequacy and trustworthy
   evidence collection remain the caller's responsibility.
 - Numeric comparisons have no tolerance, rounding, unit conversion or
