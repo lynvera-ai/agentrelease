@@ -1,9 +1,8 @@
 # Changelog
 
-No version has been released as part of this preparation. Dates below identify
-development work, not published tags or packages.
+GitHub releases are experimental snapshots. No PyPI publication is included.
 
-## 0.1.0 - Unreleased
+## 0.1.0 - 2026-10-29 (experimental prerelease)
 
 ### Supported experimental behavior
 
@@ -37,6 +36,7 @@ development work, not published tags or packages.
   other platforms and Python versions remain pending.
 - No evidence authentication, agent execution, integrations, optional rules,
   statistical inference, cloud service or transactional report writes.
-- Version 0.1.0 is retained because this is preparation of an unpublished
-  experimental candidate, not a new published release. Identify candidates
-  by source commit and artifact hashes until a version is published.
+- First GitHub prerelease, tagged `v0.1.0`. Package version 0.1.0 and alpha
+  metadata are retained; this is not a stable or production-ready release.
+  Identify local candidates by source commit and artifact hashes, and do not
+  replace the published tag or release artifacts.

@@ -7,8 +7,9 @@ review evidence tied to its source commit and artifact hashes.
 ## Receive and verify
 
 Use a new directory outside the original checkout. Obtain the wheel, source
-archive, SHA256SUMS and BUILD-METADATA.json from the maintainer. This preparation
-does not upload them. Check the source commit and reported platform in the
+archive, SHA256SUMS and BUILD-METADATA.json from the
+[v0.1.0 release](https://github.com/lynvera-ai/agentrelease/releases/tag/v0.1.0)
+or from a separately identified local candidate. Check the source commit and reported platform in the
 metadata. No credentials or paid services are needed.
 
 On macOS, from the directory containing the four files:

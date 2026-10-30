@@ -1,7 +1,7 @@
 # Local distribution and reproducible builds
 
-Version 0.1.0 remains an unpublished experimental candidate in this preparation.
-No tags, releases or packages are uploaded by this workflow.
+Version 0.1.0 is distributed as an experimental GitHub prerelease, tagged
+`v0.1.0`. The local build command below does not upload tags, releases or packages.
 
 ## Distribution choice
 
@@ -13,9 +13,11 @@ documentation, tests, SVG assets and dependency requirements for inspection.
 The platform-independent wheel tag describes its contents, not tested platform
 coverage. PyYAML is a separate dependency with platform-specific wheels.
 
-Source cloning is available from GitHub. After review, a future release could
-distribute these files as downloads. Publishing to PyPI is a separate decision;
-it is not part of this work. Until then, use the local artifacts for review.
+Tagged source and release downloads are available on
+[GitHub](https://github.com/lynvera-ai/agentrelease/releases/tag/v0.1.0).
+Publishing to PyPI is a separate decision and is not part of this release.
+Keep local candidate builds separate from the published files; do not move
+the tag or overwrite release artifacts when making later changes.
 
 ## Pinned environment
 

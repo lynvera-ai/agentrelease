@@ -13,7 +13,7 @@ validación local incluye macOS Apple Silicon con Python 3.12.9, 3.13.6 y
 combinaciones siguen pendientes. Consulta la [matriz](../validation-matrix.md).
 
 ```sh
-git clone https://github.com/lynvera-ai/agentrelease.git
+git clone --branch v0.1.0 --single-branch https://github.com/lynvera-ai/agentrelease.git
 cd agentrelease
 python3.12 -m venv .venv
 source .venv/bin/activate
@@ -23,11 +23,12 @@ agentrelease --version
 ```
 
 El resultado esperado es `AgentRelease 0.1.0`. Guarda el resultado de
-`git rev-parse HEAD` para identificar el código exacto. Si recibiste un archivo
-fuente de un candidato aún no publicado, extráelo en lugar de clonar.
+`git rev-parse HEAD` para identificar el código exacto. El
+[release experimental v0.1.0](https://github.com/lynvera-ai/agentrelease/releases/tag/v0.1.0)
+incluye el wheel, el código fuente y las sumas de comprobación.
 La [guía de instalación](../installation.md) explica ese recorrido y el uso
 de un wheel sin conexión. No uses `pip install agentrelease` sin una ruta
-para instalar este candidato.
+para instalar esta versión; no está publicada en PyPI.
 
 La instalación puede descargar herramientas pequeñas y PyYAML. La evaluación
 funciona localmente, sin claves, cuentas, modelos, conexión ni servicios pagados.
