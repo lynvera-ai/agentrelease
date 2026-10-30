@@ -16,6 +16,8 @@ classifiers = [
     "Development Status :: 3 - Alpha",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Topic :: Software Development :: Testing",
 ]
 
@@ -28,7 +30,7 @@ Issues = "https://github.com/lynvera-ai/agentrelease/issues"
 agentrelease = "agentrelease.cli:main"
 
 [project.optional-dependencies]
-dev = ["pytest>=8,<10", "ruff>=0.9,<1", "build>=1.2,<2"]
+dev = ["pytest>=8,<10", "ruff>=0.9,<1", "build>=1.2,<2", "mypy>=2.4,<3", "types-PyYAML>=6,<7"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
@@ -46,3 +48,8 @@ line-length = 100
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.12"
+files = ["src/agentrelease", "tools"]
+strict = true

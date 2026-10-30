@@ -3,13 +3,14 @@
 import argparse
 import sys
 from pathlib import Path
+from typing import NoReturn
 
 from .engine import evaluate_files
 from .models import VERSION, error_report
 
 
 class Parser(argparse.ArgumentParser):
-    def error(self, message: str) -> None:
+    def error(self, message: str) -> NoReturn:
         self.print_usage(sys.stderr)
         self.exit(3, f"{self.prog}: error: {message}\n")
 

@@ -1,6 +1,7 @@
 """Read bounded UTF-8 documents without executing configuration code."""
 
 import json
+from collections.abc import Hashable
 from pathlib import Path
 
 import yaml
@@ -12,8 +13,8 @@ MAX_INPUT_BYTES = 5 * 1024 * 1024
 
 
 class StrictSafeLoader(yaml.SafeLoader):
-    def construct_mapping(self, node: MappingNode, deep: bool = False) -> dict:
-        result = {}
+    def construct_mapping(self, node: MappingNode, deep: bool = False) -> dict[Hashable, object]:
+        result: dict[Hashable, object] = {}
         for key_node, value_node in node.value:
             key = self.construct_object(key_node, deep=deep)
             if type(key) is not str:
@@ -23,13 +24,13 @@ class StrictSafeLoader(yaml.SafeLoader):
             result[key] = self.construct_object(value_node, deep=deep)
         return result
 
-    def compose_node(self, parent: Node | None, index: object) -> Node:
+    def compose_node(self, parent: Node | None, index: int) -> Node | None:
         if self.check_event(yaml.AliasEvent):
             raise InputError("INVALID_INPUT", "YAML aliases are not supported.")
         return super().compose_node(parent, index)
 
 
-def _pairs(pairs: list[tuple[str, object]]) -> dict:
+def _pairs(pairs: list[tuple[str, object]]) -> dict[str, object]:
     result = {}
     for key, value in pairs:
         if key in result:

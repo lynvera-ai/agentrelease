@@ -44,7 +44,7 @@ def normalize_sdist(raw: Path, output: Path, epoch: int) -> None:
             archive.addfile(member, content)
 
 
-def build(source: Path, output: Path, kind: str, env: dict) -> None:
+def build(source: Path, output: Path, kind: str, env: dict[str, str]) -> None:
     result = subprocess.run(
         [
             sys.executable,

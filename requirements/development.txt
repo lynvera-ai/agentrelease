@@ -1,6 +1,7 @@
 # Pinned candidate dependencies with SHA-256 integrity checks.
 -r runtime.txt
 -r build.txt
+-r typing.txt
 pytest==9.2.0 \
     --hash=sha256:07acdcf88ec174f907dc01af70bf52d49b014bbab03faeeade31c96b18c2e588 \
     --hash=sha256:97c4f3b1f3c7414aa36465e09b8220f1d03627993bd51b1282e193753c80557b
