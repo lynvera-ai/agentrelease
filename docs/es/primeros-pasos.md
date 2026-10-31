@@ -5,6 +5,8 @@ criterios explícitos de publicación y genera reportes reproducibles. Está
 dirigido a personas que ya tienen resultados de pruebas de un agente.
 No ejecuta agentes, no autentica las evidencias y no certifica seguridad general.
 
+Visita la [página oficial de AgentRelease](https://agentrelease.lynvera.ai).
+
 ## Instalar
 
 Requiere Python 3.12 o posterior con `pip` y `venv`, y Git para clonar. La

@@ -12,6 +12,8 @@ AgentRelease compares supplied agent test evidence with explicit release
 criteria and produces reproducible JSON and text reports. It is a local Python
 library and command-line tool from Lynvera Intelligence.
 
+Visit the [official AgentRelease website](https://agentrelease.lynvera.ai).
+
 Read the [Spanish quick start](docs/es/primeros-pasos.md),
 [format reference](docs/formats.md), [installation guide](docs/installation.md)
 and [external review steps](docs/external-review.md).
@@ -189,5 +191,6 @@ Copyright 2026 Lynvera Intelligence. [Apache License 2.0](LICENSE); see
 their own licenses. No dependency source is vendored into this package.
 
 Author and principal maintainer: Dr. Felipe Castillo Rendón.
-Website: [Lynvera Intelligence](https://lynvera.ai).
+Project website: [AgentRelease](https://agentrelease.lynvera.ai).
+Company website: [Lynvera Intelligence](https://lynvera.ai).
 Organization: [lynvera-ai](https://github.com/lynvera-ai).
