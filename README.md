@@ -190,7 +190,7 @@ Copyright 2026 Lynvera Intelligence. [Apache License 2.0](LICENSE); see
 [NOTICE](NOTICE). PyYAML uses MIT; development and build dependencies retain
 their own licenses. No dependency source is vendored into this package.
 
-Author and principal maintainer: Dr. Felipe Castillo Rendón.
+Author and principal maintainer: Ph.D. Felipe Castillo Rendón.
 Project website: [AgentRelease](https://agentrelease.lynvera.ai).
 Company website: [Lynvera Intelligence](https://lynvera.ai).
 Organization: [lynvera-ai](https://github.com/lynvera-ai).
